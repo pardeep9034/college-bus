@@ -156,7 +156,7 @@ app.post("/login", async (req, res) => {
       console.log('Fetched route details:', route);
     } else {
       console.log('User does not have a registered route.');
-    }
+    }``
       
       console.log(route);
       res.render("home", {
