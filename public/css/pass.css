@@ -1,0 +1,38 @@
+.bus-pass {
+    grid-area: bus-pass;
+    background-color: rgb(254, 236, 179) !important;
+    border-radius: 10px !important;
+    color: rgb(0, 0, 0) !important;
+  }
+  .bus-pass-header{
+    
+    background-color: rgb(220, 95, 0) !important;
+    color: rgb(255, 255, 255) !important;
+    text-align: center !important;
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    padding: 10px 0px !important;
+    /* margin-left: 30px !important; */
+    border-radius: 10px 10px 0px 0px !important;
+  }
+
+    .bus-pass-body{
+        display: grid !important;
+        
+        padding: 20px 30px !important;
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+        color: rgb(0, 0, 0) !important;
+    }
+    .bus-pass-body button{
+        
+        width: 70%;
+        background-color: rgb(235, 211, 248) !important;
+        color: #7a1cac !important;
+        border: 2px solid #7a1cac !important;
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+        padding: 10px 0px !important;
+        border-radius: 25px !important;
+        margin-top: 20px !important;
+    }

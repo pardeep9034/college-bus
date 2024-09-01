@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif !important;
+  background-color: rgb(247, 239, 229) !important;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-left: 5.2rem;
+}
+.search-box input {
+  width: 50%;
+  height: 70px;
+  border-radius: 30px;
+  border: 2px solid #7a1cac;
+  padding: 0px 10px;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.search-box button {
+  width: 140px;
+  height: 70px;
+  border-radius: 30px;
+  border: 2px solid #7a1cac;
+  background-color: #7a1cac;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.search-box button:hover {
+  background-color: transparent;
+  color: #7a1cac;
+}
+.search-box i {
+  margin-right: 10px;
+}
+.heading {
+  /* margin-left: 6rem; */
+  margin-top: 2rem;
+}
+.heading h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  color: rgb(46, 7, 63);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.card {
+  background-color: rgb(238, 247, 255) !important;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+}
+.card h5 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #7a1cac;
+}
+.card h6 {
+  font-size: 1.1rem !important;
+  color: #7a1cac;
+}
+.card a {
+  text-decoration: none !important;
+
+}
+.button{
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    margin-top: 2rem;
+}
+.card-details{
+    width: 50%;
+    height: 30px;
+    background-color: rgb(235, 211, 248);
+    color: #7a1cac;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 2px solid #7a1cac;
+    /* padding: 15px; */
+    border-radius: 25px;
+
+}
+.card-details:hover{
+    background-color: #7a1cac;
+    color: rgb(235, 211, 248);
+}
+.card-register{
+    width: 50%;
+    height: 30px;
+    background-color: #7a1cac;
+    color: rgb(235, 211, 248);
+    font-weight: 600;
+    font-size: 1.1rem;
+    /* padding: 15px; */
+    border: 2px solid #7a1cac;
+    border-radius: 25px;
+}
+.card-register:hover{
+    background-color:rgb(235, 211, 248);
+    color: #7a1cac;
+}
+.route-container {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  justify-items: center;
+  align-items: center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

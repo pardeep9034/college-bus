@@ -1,0 +1,157 @@
+<%layout("/layout/boilerplate")-%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<link rel="stylesheet" href="/css/pass.css">
+
+<body style="background-color: whitesmoke !important;">
+  <%if(user.route_id){%>
+
+  <div class="container">
+    <div class="welcome">
+      <h1>Welcome, <strong style="color: rgb(249, 115, 0);"><%= user.name %>!</strong></h1>
+      <p>Your easy commute starts here.</p>
+    </div>
+    <div class="details">
+      <div class="route">
+        <h2>
+          <%= route.source %>
+            <i class="fas fa-arrow-right"></i>
+          <%= route.destination %>
+        </h2>
+      </div>
+   
+    <div class="route-details">
+      
+      <p ><strong>Registered route : </strong><%= route.route_name %></p>
+      <p><strong>Bus Number:</strong> <%= route.bus_number %></p>
+      <p><strong>Departure Time:</strong> <%= route.departure %></p>
+      <p>
+        <strong>Driver:</strong> <%= route.driver_name %> (Contact: <%=
+        route.driver_contact %>)
+      </p>
+      <p><strong>Stop:</strong> <%=user.stop%></p>
+      
+    </div>
+</div>
+    <div class="bus-pass">
+        <div class="bus-pass-header">
+            <p>College Bus Pass</p>
+        </div>
+        <div class="bus-pass-body">
+            <p><strong>Name:</strong> <%= user.name %></p>
+            <p><strong>Roll No:</strong> <%= user.roll_no %></p>
+            <p><strong>Route:</strong> <%= route.route_name %></p>
+            <p><strong>Bus Number:</strong> <%= route.bus_number %></p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<%=user._id%>" class="qr-code" alt="QR Code">
+            <button class="btn btn-success" id="downloadPass">Download  <i class="fas fa-download"></i>
+                
+            </button>
+
+    </div>
+    </div>
+    <!-- Announcements/Alerts Section -->
+    <div class="row notification">
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-warning text-white">
+                    <h5>Important Announcements</h5>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>New bus route timings starting next week.</li>
+                        <li>Temporary changes in Route 2 due to road maintenance.</li>
+                        Add more announcements as needed
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  
+
+  <% } else{%>
+
+  <div class="box">
+    <div class="box-title">
+      <h1>
+        Unlock Your Easy Commute—<strong style="color: #ffdb00"
+          >Register for Your Bus Route Today!
+        </strong>
+      </h1>
+
+      <a class="btn letsgo" href="/home/routes">
+        Let's Go
+        <i
+          class="fa-solid fa-arrow-right-long"
+          style="color: rgb(46, 7, 63)"
+        ></i>
+      </a>
+    </div>
+    <div class="box-image">
+      <img src="/css/busstop.webp" alt="" />
+    </div>
+  </div>
+
+  <%}%>
+</body>
+<!-- <style>
+  .welcome-banner {
+    background-color: #ffdb00; /* Custom color */
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .route-card {
+    transition: transform 0.3s ease;
+  }
+  .route-card:hover {
+    transform: scale(1.05);
+  }
+  .bus-pass-container {
+    width: 350px;
+    border: 2px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px auto;
+  }
+  .bus-pass-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  .bus-pass-body {
+    text-align: left;
+  }
+  .bus-pass-footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #666;
+  }
+  .qr-code {
+    margin-top: 15px;
+    width: 100px;
+    height: 100px;
+  }
+</style> -->
+<script>
+  document
+    .getElementById("downloadPass")
+    .addEventListener("click", function () {
+      html2canvas(document.querySelector(".bus-pass")).then(
+        (canvas) => {
+          // Create a link element to download the canvas as a PNG
+          const link = document.createElement("a");
+          link.href = canvas.toDataURL("image/png"); // Convert the canvas to a data URL
+          link.download = "bus_pass.png"; // Set the download filename
+          link.click(); // Trigger the download
+        }
+      );
+    });
+</script>

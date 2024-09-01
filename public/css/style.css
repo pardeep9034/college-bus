@@ -1,0 +1,122 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(./back2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    
+}
+
+.navbar{
+    /* background-color: rgb(241, 218, 218) !important; */
+    
+    padding-top: 1rem;
+    position: sticky;
+    top: 0;
+    color: rgb(235, 211, 248);
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+.buttons{
+    display: flex;
+   
+    
+    margin-right: 1rem;
+}
+.btn{
+    /* background-color: rgb(241, 218, 218); */
+    
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: .5px;
+    height: 2.5rem;
+    width: 7rem;
+    margin-left: 1rem;
+    border-radius: 2rem;
+
+  
+}
+.signup{
+
+    background-color: transparent;
+   border: 2px solid rgb(235, 211, 248);
+   color: rgb(235, 211, 248);
+}
+.signup a{
+    text-decoration: none;
+    color: rgb(235, 211, 248);
+}
+.login{
+    background-color: rgb(46, 7, 63);
+    border: 2px solid rgb(46, 7, 63);
+    
+    
+}
+.login a{
+    text-decoration: none;
+    color: rgb(235, 211, 248);
+    
+}
+.login:hover{
+    background-color: rgb(235, 211, 248);
+    a{
+        color: rgb(46, 7, 63);
+    }
+    /* color: rgb(46, 7, 63); */
+}
+.header {
+   
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+   
+}
+
+.header h1 {
+
+    font-size: 4rem;
+    font-weight: bold;
+    width: 40%;
+    text-align: center;
+    color: rgb(46, 7, 63);
+    margin-top: 2.2rem;
+    margin-bottom: 5rem;
+}
+
+.header p {
+    font-size: 1.5rem;
+    color: rgb(235, 211, 248);
+    margin-bottom: 2rem;
+}
+
+button {
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-weight: 700;
+    background-color: #6a0dad;
+    color: white;
+    border: 2px solid #6a0dad;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+button:hover {
+
+    background-color: rgb(46, 7, 63);
+
+}

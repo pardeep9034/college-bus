@@ -1,0 +1,27 @@
+<%layout("/layout/boilerplate")-%>
+<body  
+style="background-color:  rgb(247, 239, 229) !important;">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h4>User Profile</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="User Image">
+                        <h5 class="card-title"><%= user.name %></h5>
+                        <p class="card-text">Email: <%= user.email %></p>
+                        <p class="card-text">Roll No: <%= user.roll_no %></p>
+                        <p class="card-text">Route: <%= user.route_id ? user.route_id : 'Not Registered' %></p>
+                        <a href="#" class="btn btn-primary">Edit Profile</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Member since: <%= user.created_at.toDateString()%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>

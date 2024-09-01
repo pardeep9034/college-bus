@@ -1,0 +1,110 @@
+<%layout("/layout/boilerplate")-%>
+<link rel="stylesheet" href="/css/route.css">
+
+<body>
+  <div class="main">
+    <div class="search-box">
+      <input type="text" class="search-bar" placeholder="Search for your route">
+      <button class="search-btn">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+    <div class="route-container">
+      <div class="heading">
+        <h1>Find Your Perfect Route!</h1>
+      </div>
+      <div class="container">
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+          <% for (route of allRoutes) { %>
+          <div class="card m-3" style="width: 18rem; height: 20rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= route.route_name %></h5>
+              <p class="card-text"><%= route.bus_number %></p>
+              <p class="card-text">Departure: <%= route.departure %></p>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Start : <%= route.source %></h6>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Destination: <%= route.destination %></h6>
+              <div class="button">
+                <button 
+                  class="card-details card-link"
+                  data-bs-toggle="modal" 
+                  data-bs-target="#routeModal"
+                  data-route-name="<%= route.route_name %>"
+                  data-from="<%= route.source %>"
+                  data-to="<%= route.destination %>"
+                  data-bus-number="<%= route.bus_number %>"
+                  data-driver="<%= route.driver %>"
+                  data-driver-contact="<%= route.driver_contact %>"
+                  data-stops='<%= JSON.stringify(route.stops.map(stop => ({
+                    name: stop.stop_name,
+                    time: stop.arrival_time
+                   }))) %>'
+                >
+                  Details
+                </button>
+                <a href="/register/<%=route._id%>"  class="card-register card-link">Select</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="routeModal" tabindex="-1" aria-labelledby="routeModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="routeModalLabel">Route Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p><strong>Route Name:</strong> <span id="modal-route-name"></span></p>
+            <p><strong>From:</strong> <span id="modal-from"></span></p>
+            <p><strong>To:</strong> <span id="modal-to"></span></p>
+            <p><strong>Bus Number:</strong> <span id="modal-bus-number"></span></p>
+            <p><strong>Driver:</strong> <span id="modal-driver"></span></p>
+            <p><strong>Driver Contact:</strong> <span id="modal-driver-contact"></span></p>
+            <h6>Stops:</h6>
+            <ul id="modal-stops"></ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const routeModal = document.getElementById('routeModal');
+        routeModal.addEventListener('show.bs.modal', function (event) {
+          const button = event.relatedTarget;
+          const routeName = button.getAttribute('data-route-name');
+          const from = button.getAttribute('data-from');
+          const to = button.getAttribute('data-to');
+          const busNumber = button.getAttribute('data-bus-number');
+          const driver = button.getAttribute('data-driver');
+          const driverContact = button.getAttribute('data-driver-contact');
+          const stops = JSON.parse(button.getAttribute('data-stops'));
+
+          document.getElementById('modal-route-name').textContent = routeName;
+          document.getElementById('modal-from').textContent = from;
+          document.getElementById('modal-to').textContent = to;
+          document.getElementById('modal-bus-number').textContent = busNumber;
+          document.getElementById('modal-driver').textContent = driver;
+          document.getElementById('modal-driver-contact').textContent = driverContact;
+
+          const stopsList = document.getElementById('modal-stops');
+          stopsList.innerHTML = '';
+          stops.forEach(stop => {
+            const li = document.createElement('li');
+            li.textContent = `${stop.name} - ${stop.time}`;
+            stopsList.appendChild(li);
+          });
+        });
+      });
+    </script>
+</body>
